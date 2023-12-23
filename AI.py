@@ -964,6 +964,8 @@ def main():
                                inactiveColour=(200, 50, 0), hoverColour=(150, 0, 0), pressedColour=(0, 200, 20),  onClick=lambda: load_next_map(game,game_surface) )
     button_previouslevel = Button(screen,  750,  350,  100,  40, text='Previous',  fontSize=34,  margin=20,  
                                   inactiveColour=(200, 50, 0), hoverColour=(150, 0, 0), pressedColour=(0, 200, 20),  onClick=lambda: load_previous_map(game,game_surface) )
+    button_History = Button(screen,  815,  250,  100,  40, text='History',  fontSize=34,  margin=20, 
+                          inactiveColour=(200, 50, 0), hoverColour=(150, 0, 0), pressedColour=(0, 200, 20),  onClick=lambda: display_history(game.current_level) )
     button_Home = Button(screen,  815,  300,  100,  40, text='Home',  fontSize=34,  margin=20, 
                           inactiveColour=(200, 50, 0), hoverColour=(150, 0, 0), pressedColour=(0, 200, 20),  onClick=lambda: home() )
 
