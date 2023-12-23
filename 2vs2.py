@@ -507,20 +507,20 @@ def main():
                           inactiveColour=(200, 50, 0), hoverColour=(150, 0, 0), pressedColour=(0, 200, 20),  onClick=lambda: testrun(screen,game,game2,game_surface,game_surface2) )
     
     #Button trong game của player 2
-    button_reset = Button(screen,  300+710,  450,  100,  40, text='Reset',  fontSize=34,  margin=20, 
+    button_reset1 = Button(screen,  300+710,  450,  100,  40, text='Reset',  fontSize=34,  margin=20, 
                           inactiveColour=(200, 50, 0), hoverColour=(150, 0, 0), pressedColour=(0, 200, 20),  onClick=lambda: game2.reset() )
     
-    button_bfs = Button(screen,  235+710,  500,  100,  40, text='BFS',  fontSize=34,  margin=20, 
+    button_bfs1 = Button(screen,  235+710,  500,  100,  40, text='BFS',  fontSize=34,  margin=20, 
                           inactiveColour=(200, 50, 0), hoverColour=(150, 0, 0), pressedColour=(0, 200, 20),  onClick=lambda: bfs2() )
-    button_dfs = Button(screen,  365+710,  500,  100,  40, text='DFS',  fontSize=34,  margin=20, 
+    button_dfs1 = Button(screen,  365+710,  500,  100,  40, text='DFS',  fontSize=34,  margin=20, 
                           inactiveColour=(200, 50, 0), hoverColour=(150, 0, 0), pressedColour=(0, 200, 20),  onClick=lambda: dfs2() )
-    button_ucs = Button(screen,  235+710,  550,  100,  40, text='UCS',  fontSize=34,  margin=20, 
+    button_ucs1 = Button(screen,  235+710,  550,  100,  40, text='UCS',  fontSize=34,  margin=20, 
                           inactiveColour=(200, 50, 0), hoverColour=(150, 0, 0), pressedColour=(0, 200, 20),  onClick=lambda: ucs2() )
-    button_greedy = Button(screen,  365+710,  550,  100,  40, text='Greedy',  fontSize=34,  margin=20, 
+    button_greedy1 = Button(screen,  365+710,  550,  100,  40, text='Greedy',  fontSize=34,  margin=20, 
                           inactiveColour=(200, 50, 0), hoverColour=(150, 0, 0), pressedColour=(0, 200, 20),  onClick=lambda: greedy2() )
-    button_astar = Button(screen,  235+710,  600,  100,  40, text='A*',  fontSize=34,  margin=20, 
+    button_astar1 = Button(screen,  235+710,  600,  100,  40, text='A*',  fontSize=34,  margin=20, 
                           inactiveColour=(200, 50, 0), hoverColour=(150, 0, 0), pressedColour=(0, 200, 20),  onClick=lambda: a2() )
-    button_bestfs = Button(screen,  365+710,  600,  100,  40, text='IDS',  fontSize=34,  margin=20, 
+    button_bestfs1 = Button(screen,  365+710,  600,  100,  40, text='IDS',  fontSize=34,  margin=20, 
                           inactiveColour=(200, 50, 0), hoverColour=(150, 0, 0), pressedColour=(0, 200, 20),  onClick=lambda: ids2() )
     
 
