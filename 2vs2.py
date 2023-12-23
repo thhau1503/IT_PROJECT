@@ -51,19 +51,6 @@ class Game:
         self.step = 0    
         self.time = 0
     
-    def load_next_map(self,gamesur):
-        gamesur.fill((41,41,41))
-        index = self.listMappath.index(self.curMappath)
-        if index < len(self.listMappath) - 1:
-            self.curMappath = self.listMappath[index + 1]
-            map_open(self.curMappath)
-
-    def load_previous_map(self,gamesur):
-        gamesur.fill((41,41,41))
-        index = self.listMappath.index(self.curMappath)
-        if index > 0:
-            self.curMappath = self.listMappath[index - 1]
-            map_open(self.curMappath)
     def printStep(self):
         print (f"AI Step:{self.aiStep}")
         print (f"Player step: {self.playerStep}")
@@ -307,113 +294,6 @@ def load_previous_map(game,game2, gamesur,gamesur2):
         game2.matrix = map_open(game2.curMappath)
         print_game(game.get_matrix(), gamesur)
         print_game(game2.get_matrix(), gamesur2)
-
-        
-
-def validMove(state):
-    x = 0
-    y = 0
-    move = []
-    for step in ["U","D","L","R"]:
-        if step == "U":
-            x = 0
-            y = -1
-        elif step == "D":
-            x = 0
-            y = 1
-        elif step == "L":
-            x = -1
-            y = 0
-        elif step == "R":
-            x = 1
-            y = 0
-
-        if state.can_move(x,y) or state.can_push(x,y):
-            move.append(step)
-
-    return move
-
-def is_deadlock(state):
-    box_list = state.box_list()
-    for box in box_list:
-        x = box[0]
-        y = box[1]
-        #corner up-left
-        if state.get_content(x,y-1) in ['#','$','*'] and state.get_content(x-1,y) in ['#','$','*']:
-            if state.get_content(x-1,y-1) in ['#','$','*']:
-                return True
-            if state.get_content(x,y-1) == '#' and state.get_content(x-1,y) =='#':
-                return True
-            if state.get_content(x,y-1) in ['$','*'] and state.get_content(x-1,y) in ['$','*']:
-                if state.get_content(x+1,y-1) == '#' and state.get_content(x-1,y+1) == '#':
-                    return True
-            if state.get_content(x,y-1) in ['$','*'] and state.get_content(x-1,y) == '#':
-                if state.get_content(x+1,y-1) == '#':
-                    return True
-            if state.get_content(x,y-1) == '#' and state.get_content(x-1,y) in ['$','*']:
-                if state.get_content(x-1,y+1) == '#':
-                    return True
-                
-        #corner up-right
-        if state.get_content(x,y-1) in ['#','$','*'] and state.get_content(x+1,y) in ['#','$','*']:
-            if state.get_content(x+1,y-1) in ['#','$','*']:
-                return True
-            if state.get_content(x,y-1) == '#' and state.get_content(x+1,y) =='#':
-                return True
-            if state.get_content(x,y-1) in ['$','*'] and state.get_content(x+1,y) in ['$','*']:
-                if state.get_content(x-1,y-1) == '#' and state.get_content(x+1,y+1) == '#':
-                    return True
-            if state.get_content(x,y-1) in ['$','*'] and state.get_content(x+1,y) == '#':
-                if state.get_content(x-1,y-1) == '#':
-                    return True
-            if state.get_content(x,y-1) == '#' and state.get_content(x+1,y) in ['$','*']:
-                if state.get_content(x+1,y+1) == '#':
-                    return True
-
-
-        #corner down-left
-        elif state.get_content(x,y+1) in ['#','$','*'] and state.get_content(x-1,y) in ['#','$','*']:
-            if state.get_content(x-1,y+1) in ['#','$','*']:
-                return True
-            if state.get_content(x,y+1) == '#' and state.get_content(x-1,y) =='#':
-                return True
-            if state.get_content(x,y+1) in ['$','*'] and state.get_content(x-1,y) in ['$','*']:
-                if state.get_content(x-1,y-1) == '#' and state.get_content(x+1,y+1) == '#':
-                    return True
-            if state.get_content(x,y+1) in ['$','*'] and state.get_content(x-1,y) == '#':
-                if state.get_content(x+1,y+1) == '#':
-                    return True
-            if state.get_content(x,y+1) == '#' and state.get_content(x-1,y) in ['$','*']:
-                if state.get_content(x-1,y-1) == '#':
-                    return True
-                
-
-        #corner down-right
-        elif state.get_content(x,y+1) in ['#','$','*'] and state.get_content(x+1,y) in ['#','$','*']:
-            if state.get_content(x+1,y+1) in ['#','$','*']:
-                return True
-            if state.get_content(x,y+1) == '#' and state.get_content(x+1,y) =='#':
-                return True
-            if state.get_content(x,y+1) in ['$','*'] and state.get_content(x+1,y) in ['$','*']:
-                if state.get_content(x-1,y+1) == '#' and state.get_content(x+1,y-1) == '#':
-                    return True
-            if state.get_content(x,y+1) in ['$','*'] and state.get_content(x+1,y) == '#':
-                if state.get_content(x-1,y+1) == '#':
-                    return True
-            if state.get_content(x,y+1) == '#' and state.get_content(x+1,y) in ['$','*']:
-                if state.get_content(x+1,y-1) == '#':
-                    return True
-                
-    return False
-
-def get_distance(state):
-    sum = 0
-    box_list = state.box_list()
-    dock_list = state.dock_list()
-    for box in box_list:
-        for dock in dock_list:
-            sum += (abs(dock[0] - box[0]) + abs(dock[1] - box[1]))
-    return sum
 
 def map_open(filename):
     matrix = []
@@ -727,8 +607,6 @@ def main():
         pygame_widgets.update(events)
         pygame.display.update()
 
-def ok():
-    messagebox.showinfo("Hello", "BFS solve!")
 def home():
     try:
         subprocess.Popen(["python", "menuSokoban.py"])
