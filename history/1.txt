@@ -1,0 +1,29 @@
+        BFS
+Step: 37
+Time to find solution: 0.09
+Nodes: 1061
+
+        DFS
+Step: 71
+Time to find solution: 0.02
+Nodes: 258
+
+        IDS
+Step: 59
+Time to find solution: 0.72
+Nodes: 281
+
+        UCS
+Step: 37
+Time to find solution: 0.09
+Nodes: 1054
+
+        A*
+Step: 37
+Time to find solution: 0.05
+Nodes: 484
+
+        Greedy
+Step: 39
+Time to find solution: 0.02
+Nodes: 284

@@ -1,0 +1,21 @@
+        BFS
+TIME OUT
+
+        DFS
+Step: 2419
+Time to find solution: 6.33
+Nodes:71228
+
+        IDS
+TIMEOUT
+
+        UCS
+TIMEOUT
+
+        A*
+TIMEOUT
+
+        Greedy
+Step: 241
+Time to find solution: 76.29
+Nodes:39616
