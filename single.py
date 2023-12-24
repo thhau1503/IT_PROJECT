@@ -222,7 +222,6 @@ class Game:
                 self.set_content(current[0]+x,current[1]+y,'+')
                 if save: self.stack.append((x,y,True))
     def reset(self):
-        current_map = self.curMappath
         self.matrix = map_open(self.curMappath) 
         self.heuristic = 0
         self.pathSol = ""
@@ -290,8 +289,17 @@ def map_open(filename):
 
 def print_game(matrix,screen):
     screen.fill(background)
-    x = 0
-    y = 0
+
+    screen_width, screen_height = screen.get_size()
+    game_width = len(matrix[0]) * 40
+    game_height = len(matrix) * 32
+
+    x_offset = (screen_width - game_width) // 2
+    y_offset = (screen_height - game_height) // 2
+
+    x = x_offset
+    y = y_offset
+
     for row in matrix:
         for char in row:
             if char == ' ': #floor
@@ -309,7 +317,7 @@ def print_game(matrix,screen):
             elif char == '+': #worker on dock
                 screen.blit(worker_docked,(x,y))
             x = x + 32
-        x = 0
+        x = x_offset
         y = y + 32
 
 def main():
