@@ -222,7 +222,6 @@ class Game:
                 self.set_content(current[0]+x,current[1]+y,'+')
                 if save: self.stack.append((x,y,True))
     def reset(self):
-        current_map = self.curMappath
         self.matrix = map_open(self.curMappath) 
         self.heuristic = 0
         self.pathSol = ""
