@@ -5,11 +5,10 @@ import queue
 import copy
 import time
 from pygame_widgets.button import Button
-from pygame_widgets.combobox import ComboBox
-from tkinter import messagebox
 from queue import PriorityQueue
 import subprocess
 import pygame_widgets
+
 TIME_LIMITED = 1800
 window_size = (1000,600)
 wall = pygame.image.load('.\img\wall.png')
@@ -20,7 +19,7 @@ worker = pygame.image.load('.\img\player.png')
 worker_docked = pygame.image.load('.\img\worker_dock.png')
 docker = pygame.image.load('.\img/target.png')
 background = 41,41,41
-stepcount = 0
+
 class Game:
 
     def is_valid_value(self,char):
@@ -250,7 +249,6 @@ class Game:
         self.state = "..."
         self.time = 0  
         self.stack = []
-        print_game(self.get_matrix(), pygame.display.get_surface())
 
 def load_next_map(game, gamesur):
     if (game.current_level == (len(game.listMappath))):
@@ -1016,8 +1014,6 @@ def main():
         pygame_widgets.update(events)
         pygame.display.update()
 
-def ok():
-    messagebox.showinfo("Hello", "BFS solve!")
 def home():
     try:
         subprocess.Popen(["python", "menuSokoban.py"])

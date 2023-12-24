@@ -1,27 +1,16 @@
 import sys
 import threading
 import pygame
-import queue
-import copy
 import time
 from pygame_widgets.button import Button
 import subprocess
 import pygame_widgets
-#Dùng lại các hàm ở AI.py 
+
+#Dùng lại các hàm và biến ở AI.py 
 import AI
 from AI import *
-TIME_LIMITED = 1800
-window_size = (1370,750)
 
-wall = pygame.image.load('.\img\wall.png')
-floor = pygame.image.load('.\img/space.png')
-box = pygame.image.load('.\img/box.png')
-box_docked = pygame.image.load('.\img/bingo.png')
-worker = pygame.image.load('.\img\player.png')
-worker_docked = pygame.image.load('.\img\worker_dock.png')
-docker = pygame.image.load('.\img/target.png')
-background = 41,41,41
-stepcount = 0
+window_size = (1370,750)
 
 def load_next_map(game, game2,gamesur,gamesur2):
     game.heuristic = 0
