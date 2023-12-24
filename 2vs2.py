@@ -421,7 +421,7 @@ def run_solution1(screen, game, sur):
         screen.blit(sur, (0, 0))
         pygame.display.flip()
         i += 1
-        time.sleep(0.025)
+        time.sleep(0.1)
 
 def run_solution2(screen, game2, sur2):
     i = 0
@@ -445,7 +445,7 @@ def run_solution2(screen, game2, sur2):
         screen.blit(sur2, (730, 0))
         pygame.display.flip()
         i += 1
-        time.sleep(0.025)
+        time.sleep(0.1)
 
 def testrun(screen, game, game2, sur, sur2):
     thread1 = threading.Thread(target=run_solution1, args=(screen, game, sur))

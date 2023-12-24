@@ -842,7 +842,7 @@ def a(screen,game,game_surface):
         print_game(game.get_matrix(),pygame.display.get_surface())
         pygame.display.flip()
         screen.blit(game_surface, (0, 0))
-        time.sleep(0.01)    
+        time.sleep(0.1)    
 
 def ucs(game):
     sol = UCSsolution(game)
@@ -850,7 +850,7 @@ def ucs(game):
         playByBot(game,move)
         print_game(game.get_matrix(),pygame.display.get_surface())
         pygame.display.flip()
-        time.sleep(0.01)
+        time.sleep(0.1)
 
 def dfs(game):
     i=0
@@ -860,7 +860,7 @@ def dfs(game):
         print_game(game.get_matrix(),pygame.display.get_surface())
         pygame.display.flip()
         i+=1
-        time.sleep(0.01)
+        time.sleep(0.1)
 def ids(game):
     i=0
     sol= IDSsolution(game)
@@ -869,7 +869,7 @@ def ids(game):
         print_game(game.get_matrix(),pygame.display.get_surface())
         pygame.display.flip()
         i+=1
-        time.sleep(0.01)
+        time.sleep(0.1)
 
 def bfs(game):
     i=0
@@ -879,7 +879,7 @@ def bfs(game):
         print_game(game.get_matrix(),pygame.display.get_surface())
         pygame.display.flip()
         i+=1
-        time.sleep(0.01)
+        time.sleep(0.1)
 def greedy(game):
     i=0
     sol= GreedySolution(game)
@@ -888,7 +888,7 @@ def greedy(game):
         print_game(game.get_matrix(),pygame.display.get_surface())
         pygame.display.flip()
         i+=1
-        time.sleep(0.01)
+        time.sleep(0.1)
 
 def display_history(level):
     history_file_path = f'history/{level}.txt'
